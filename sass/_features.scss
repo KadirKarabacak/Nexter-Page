@@ -1,4 +1,36 @@
 .features{
-    background-color: $color-grey-light-2;
     grid-column: center-start / center-end;
+    margin: 15rem 0;
+
+    display: grid;
+    // grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr)); // ekran küçülmesinde yer değişimi
+    grid-gap: 6rem;
+
+    // Bu özellik feature'da son kolonun doldurma çabasını düzeltip boşlukları kaldırır.
+    align-items: start;
+}
+
+.feature{
+    display: grid;
+    // min-content icon için, 1fr geri kalan için
+    grid-template-columns: min-content 1fr;
+    grid-row-gap: 1.5rem;
+    grid-column-gap: 2.5rem;
+    
+
+    &__icon{
+        fill: $color-primary;
+        width: 4.5rem;
+        height: 4.5rem;
+        // -1 sadece açıkca belirtilen satırlar için çalışır, tanımlamadığımız için çalışmaz
+        grid-row: 1 / span 2;
+        transform: translateY(-1rem);
+    }
+
+    &__text{
+        font-size: 1.7rem;
+        // Text'i yan kolona almak yerine iconu 2 satır kaplayacak şekilde tanımladık.
+        // grid-column: 2 / 3;
+    }
 }
