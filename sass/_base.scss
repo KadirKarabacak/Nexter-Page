@@ -14,6 +14,12 @@ $color-grey-dark-2: #6d5d4b;
 $font-primary: "Nunito", sans-serif;
 $font-display: "Josefin Sans", sans-serif;
 
+// RESPONSIVE BREAKPOINTS
+$bp-largest: 75em;      // 1200px
+$bp-large : 62.5em;     // 1000px
+$bp-medium: 50em;       // 800px
+$bp-small: 37.5em ;     // 600px
+
 *,
 *::before,
 *::after {
@@ -25,6 +31,10 @@ $font-display: "Josefin Sans", sans-serif;
 html {
     box-sizing: border-box;
     font-size: 62.5%; // 1rem = 10px
+
+    @media only screen and (max-width: $bp-largest){
+        font-size: 50%;
+    }
 }
 
 body {
@@ -43,4 +53,21 @@ body {
         [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr)
         [full-end]; // 1140px / 8column = 140px kolonları sabit kodlamak istiyoruz
     // 8 Kolonluk bir grid oluşturup sidebar için +1, full page için başa ve sona +2 kolon ekledik. sabit 1fr yerine min 60px max 1fr verdik tamamen kaybolmayacak.
+
+    @media only screen and (max-width: $bp-large){
+        // Sidebar'ı uste yerleştirmek için kolonu silip satır oluşturuyoruz
+        grid-template-rows: 6rem 80vh min-content 40vw repeat(3, min-content);
+        grid-template-columns:
+        [full-start] minmax(6rem, 1fr)
+        [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr)
+        [full-end];
+    }
+
+    @media only screen and (max-width: $bp-medium){
+        // Realtors'u header'ın altına alabilmek için yeni satır oluşturuyoruz ve 100vh veriyoruz
+        // grid-template-rows: 6rem calc(100vh - 6rem) repeat(6, min-content);
+        grid-template-rows: 6rem calc(100vh - 6rem);
+        // Navbarın yüksekliğini çıkarıp tüm alanı kaplamasını sağladık
+        // Min-content yazmaya gerek yok otomatik hallediyor.
+    }
 }
