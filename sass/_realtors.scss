@@ -29,6 +29,11 @@
         @media only screen and (max-width: $bp-small) {
             grid-template-columns: min-content max-content;
         }
+
+        @media only screen and (max-width: $bp-smallest) {
+            grid-template-columns: min-content max-content;
+            row-gap: 2.5vh;
+        }
     }
 
     &__img {

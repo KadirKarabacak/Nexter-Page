@@ -1,6 +1,6 @@
-// Grid ile bir galeri yaparken odaklanmamız gereken şey 
+// Grid ile bir galeri yaparken odaklanmamız gereken şey
 // en küçük görünmesini istediğimiz resim olacaktır
-.gallery{
+.gallery {
     background-color: $color-grey-light-1;
     grid-column: full-start / full-end;
 
@@ -10,18 +10,40 @@
     gap: 1.5rem;
     padding: 1.5rem;
 
-    &__item{
-        &--1{
-            grid-row: 1/ span 2;
+    &__img {
+        width: 100%;
+        height: 100%;
+        // Bu sadece yükseklik ve genişlk verildiğinde çalışır
+        object-fit: cover;
+        // Arkada garip beyaz boşluklar görmemek için display block
+        display: block;
+        opacity: .8;
+        transition: transform 0.4s ease-in,
+                    opacity .2s ease-in;
+    }
+
+    &__item:hover &__img{
+        transform: scale(1.1);
+        opacity: 1;
+    }
+
+    &__item {
+        position: relative;
+        overflow: hidden;
+        backface-visibility: hidden;
+        transition: all .3s ease-in;
+
+        &--1 {
+            grid-row: 1 / span 2;
             grid-column: 1 / span 2;
         }
 
-        &--2{
+        &--2 {
             grid-row: 1 / span 3;
             grid-column: 3 / span 3;
         }
 
-        &--3{
+        &--3 {
             grid-row: 1 / span 2;
             grid-column: 6 / 7;
         }
@@ -31,7 +53,7 @@
             grid-column: 7 / 9;
         }
 
-        &--5{
+        &--5 {
             grid-row: 3 / span 3;
             grid-column: 1 / span 2;
         }
@@ -61,7 +83,7 @@
             grid-column: 1 / 2;
         }
 
-        &--11{
+        &--11 {
             grid-row: 6 / span 2;
             grid-column: 2 / span 2;
         }
@@ -71,24 +93,14 @@
             grid-column: 4 / 5;
         }
 
-        &--13{
+        &--13 {
             grid-row: 5 / span 3;
             grid-column: 5 / span 3;
         }
 
-        &--14{
+        &--14 {
             grid-column: 8 / 9;
             grid-row: 6 / span 2;
         }
     }
-    
-    &__img{
-        width: 100%;
-        height: 100%;
-        // Bu sadece yükseklik ve genişlk verildiğinde çalışır
-        object-fit: cover;
-        // Arkada garip beyaz boşluklar görmemek için display block
-        display: block;
-    }
-
 }

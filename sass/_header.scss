@@ -21,6 +21,10 @@
     padding: 5rem;
   }
 
+  @media only screen and (max-width: $bp-smallest) {
+    row-gap: 3rem;
+  }
+
   &__logo {
     height: 3rem;
     justify-self: center;

@@ -185,6 +185,11 @@ body {
     padding: 5rem;
   }
 }
+@media only screen and (max-width: 25em) {
+  .header {
+    row-gap: 3rem;
+  }
+}
 .header__logo {
   height: 3rem;
   justify-self: center;
@@ -250,6 +255,12 @@ body {
 @media only screen and (max-width: 37.5em) {
   .realtors__list {
     grid-template-columns: min-content max-content;
+  }
+}
+@media only screen and (max-width: 25em) {
+  .realtors__list {
+    grid-template-columns: min-content max-content;
+    row-gap: 2.5vh;
   }
 }
 .realtors__img {
@@ -365,6 +376,12 @@ body {
   grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
   grid-gap: 7rem;
 }
+@media only screen and (max-width: 25em) {
+  .homes {
+    margin: 10rem 0;
+    gap: 5rem;
+  }
+}
 
 .home {
   background-color: #f9f7f6;
@@ -397,6 +414,11 @@ body {
   z-index: 2;
   justify-self: end;
   margin: 1rem;
+  transition: all 0.3s;
+}
+.home__like:hover {
+  fill: #ffd900;
+  cursor: pointer;
 }
 .home__name {
   grid-row: 1/2;
@@ -441,6 +463,24 @@ body {
   grid-template-rows: repeat(7, 5vw);
   gap: 1.5rem;
   padding: 1.5rem;
+}
+.gallery__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  opacity: 0.8;
+  transition: transform 0.4s ease-in, opacity 0.2s ease-in;
+}
+.gallery__item:hover .gallery__img {
+  transform: scale(1.1);
+  opacity: 1;
+}
+.gallery__item {
+  position: relative;
+  overflow: hidden;
+  backface-visibility: hidden;
+  transition: all 0.3s ease-in;
 }
 .gallery__item--1 {
   grid-row: 1/span 2;
@@ -498,17 +538,16 @@ body {
   grid-column: 8/9;
   grid-row: 6/span 2;
 }
-.gallery__img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
 
 .footer {
   background-color: #101d2c;
   grid-column: full-start/full-end;
   padding: 8rem;
+}
+@media only screen and (max-width: 25em) {
+  .footer {
+    padding: 2rem;
+  }
 }
 
 .nav {
@@ -517,6 +556,11 @@ body {
   grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
   gap: 2rem;
   align-items: center;
+}
+@media only screen and (max-width: 25em) {
+  .nav {
+    gap: 1rem;
+  }
 }
 .nav__link:link, .nav__link:visited {
   font-size: 1.4rem;
